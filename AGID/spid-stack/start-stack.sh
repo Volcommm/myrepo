@@ -10,6 +10,8 @@ git clone https://${{ secrets.PRIVATE_REPOSECRET }}@github.com/AgID/spid-data.gi
 #rm -R spid-analytics
 git clone https://${{ secrets.PRIVATE_REPOSECRET }}@github.com/AgID/spid-analytics.git
 
+chmod +x start-spid-analytics.sh
+
 #fai partire il compose
 docker-compose up -d
 
