@@ -11,7 +11,7 @@ RUN apt update \
     #&& npm install npm@latest -g \
     && apt install curl -y \
     #&& apt install nodejs npm -y \
-    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt install nodejs -y \
     && apt install build-essential -y \
     && apt install git -y \
