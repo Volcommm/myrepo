@@ -3,12 +3,12 @@
 # Simone Leo V1.0
 
 #clona last repository spid-data
-rm -R spid-data
-git clone https://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@github.com/AgID/spid-data.git
+#rm -R spid-data
+git clone https://${{ secrets.PRIVATE_REPOSECRET }}@github.com/AgID/spid-data.git
 
 #clona last repository spid-analytics
-rm -R spid-analytics
-git clone https://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@github.com/AgID/spid-analytics.git
+#rm -R spid-analytics
+git clone https://${{ secrets.PRIVATE_REPOSECRET }}@github.com/AgID/spid-analytics.git
 
 #fai partire il compose
 docker-compose up -d
