@@ -7,6 +7,8 @@ LABEL description="This is the base docker image for the server node js."
 WORKDIR /app
 
 RUN apt update \
+    && ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime \
+    && export DEBIAN_FRONTEND=noninteractive \
     #&& apt install nodejs -y \
     #&& npm install npm@latest -g \
     && apt install curl -y \
