@@ -10,3 +10,7 @@ cd ..
 npm run build
 
 node /app/spid-analytics/server/spid-analytics-server.js
+
+npm run cy:instrumentApp
+npm run cy:run
+npm run report:summary
