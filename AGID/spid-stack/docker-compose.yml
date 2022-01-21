@@ -1,0 +1,65 @@
+version: '3.1'
+
+services:
+
+  db-spid:
+    build: spid-data/docker/spid-data
+    image: agid/spid-data:1.0
+    container_name: spid-data
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./spid-data/docker/spid-data/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./spid-data/example:/tmp/example
+        #- spid-data-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - spid-onboarding
+  
+  server:
+    build: docker/spid-analytics
+    image: agid/spid-analytics:1.0
+    container_name: spid-analytics
+    ports:
+      - 8080:8080
+    depends_on:
+      - db-spid
+    volumes:
+      - $PWD:/app
+      #- spid-analytics-volume:/app/spid-analytics
+    entrypoint: 
+      - /app/start-spid-analytics.sh
+
+    networks:
+      - spid-onboarding
+  
+        # cypress:
+        #build: docker/spid-cypress
+        #image: agid/spid-cypress
+        #container_name: spid-cypress
+        #depends_on:
+        # - server
+        #environment:
+        #- CYPRESS_baseUrl=http://server:8080
+        #command: npx cypress run
+        #ports:
+        # - 8081:8080
+        #volumes:
+        #- spid-cypress-volume:/app/spid-analytics
+        #networks:
+        #- spid-onboarding
+  
+
+networks:
+  spid-onboarding:
+    driver: bridge
+
+      #volumes:
+      #spid-data-volume:
+      #driver: local
+      #spid-analytics-volume:
+      #driver: local
+      #spid-cypress-volume:
+      #driver: local
