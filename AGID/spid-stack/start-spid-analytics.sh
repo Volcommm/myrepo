@@ -9,7 +9,7 @@ npm install
 cd ..
 npm run build
 
-node /app/spid-analytics/server/spid-analytics-server.js
+node /app/spid-analytics/server/spid-analytics-server.js &
 
 npm run cy:instrumentApp
 npm run cy:run
