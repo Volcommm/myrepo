@@ -4,11 +4,11 @@
 
 #clona last repository spid-data
 rm -R spid-data
-git clone https://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@github.com/AgID/spid-data.git
+git clone https://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@github.com/AgID/spid-data.git
 
 #clona last repository spid-analytics
 rm -R spid-analytics
-git clone https://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@github.com/AgID/spid-analytics.git
+git clone https://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@github.com/AgID/spid-analytics.git
 
 #fai partire il compose
 docker-compose up -d
