@@ -10,7 +10,7 @@ RUN apt update \
     #&& apt install nodejs -y \
     #&& npm install npm@latest -g \
     && apt install curl -y \
-    && apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb \
+    && apt install xvfb -y \
     #&& apt install nodejs npm -y \
     && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt install nodejs -y \
